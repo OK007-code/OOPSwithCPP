@@ -104,3 +104,18 @@ int main(){
     p1.higherPrice(p1,p2);
     return 0;
 }
+
+class Marks{
+private:
+int marks[5];
+public:
+Marks(){
+cout<<"enter marks";
+for(int i=0;i<5;i++){
+cin>>marks[i];
+}
+}
+void display(){
+    cout<<"marks are:";
+for(auto m:marks){
+cout<<m<<" ";
