@@ -61,3 +61,36 @@ int main() {
     compareBalance(a1, a2);
     return 0;
 }
+// Q3: Hospital Active Patient Counter
+#include <iostream>
+using namespace std;
+class Patient {
+    int patientId;
+    string patientName;
+
+    static int activePatients;
+public:
+    Patient(int id, string name) {
+        patientId = id;
+        patientName = name;
+        activePatients++;
+    }
+    ~Patient() {
+        activePatients--;
+    }
+    static void showActivePatients() {
+        cout << "Active Patients: " << activePatients << endl;
+    }
+};
+int Patient::activePatients = 0;
+int main() {
+    Patient p1(101, "Rahul");
+    Patient p2(102, "Ananya");
+    Patient::showActivePatients();
+    {
+        Patient p3(103, "Riya");
+        Patient::showActivePatients();
+    }
+    Patient::showActivePatients();
+    return 0;
+}
